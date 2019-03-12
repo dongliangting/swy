@@ -73,7 +73,7 @@ import com.iflytek.aiui.demo.chat.ui.common.ScrollSpeedLinearLayoutManger;
 import com.iflytek.aiui.demo.chat.ui.common.widget.PopupWindowFactory;
 import com.iflytek.aiui.demo.chat.ui.zxing.BannerActivity;
 import com.iflytek.aiui.demo.chat.ui.zxing.DefaultCaptureActivity;
-import com.iflytek.aiui.demo.chat.ui.zxing.TestScanActivity;
+import com.iflytek.aiui.demo.chat.ui.zxing.USBCameraActivity;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechEvent;
 import com.iflytek.cloud.SynthesizerListener;
@@ -160,6 +160,8 @@ public class ChatFragment extends Fragment implements PermissionChecker {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                mVoiceViewModel.startWakeup();     //唤醒
                 faceDetectManager.start();
                 isFaceStart = true;
                 faceDetectManager.setUseDetect(true);
@@ -243,7 +245,7 @@ public class ChatFragment extends Fragment implements PermissionChecker {
         mChatBinding.executePendingBindings();
 
         if (event.question.contains("产品条码")) {
-            getActivity().startActivity(new Intent(getActivity(), DefaultCaptureActivity.class));
+            getActivity().startActivity(new Intent(getActivity(), USBCameraActivity.class));
         }
         ivLine.setVisibility(View.VISIBLE);
     }
@@ -501,14 +503,14 @@ public class ChatFragment extends Fragment implements PermissionChecker {
     }
 
 
-    private String speakContent = "在呢,你好";
+    private String speakContent = "我是无忧宝宝，有什么可以帮您";
 
     private void startSeyContent() {
         //唤醒回答
 
         mPlayerViewModel.startTTS(speakContent, null, false);
 
-        speakContent = "在呢,你好";
+        speakContent = "我是无忧宝宝，有什么可以帮您";
     }
 
 
@@ -674,7 +676,7 @@ public class ChatFragment extends Fragment implements PermissionChecker {
         view.findViewById(R.id.tv_scan_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), TestScanActivity.class));
+                startActivity(new Intent(getActivity(), USBCameraActivity.class));
             }
         });
 
@@ -695,7 +697,7 @@ public class ChatFragment extends Fragment implements PermissionChecker {
     }
 
 
-    private String groupId = "nxpt";
+    private String groupId = "swy";
 
     private void init() {
 //        Intent intent = getIntent();
@@ -918,7 +920,7 @@ public class ChatFragment extends Fragment implements PermissionChecker {
 
                     faceDetectManager.stop();  //停止识别
                     isFaceStart = false;
-                    handler.postDelayed(runnable, 30000);  //30秒后开启
+                    handler.postDelayed(runnable, 120000);  //120秒后开启
 
                     showTips("停止识别");
 
@@ -964,7 +966,7 @@ public class ChatFragment extends Fragment implements PermissionChecker {
                     mVoiceViewModel.startWakeup();    //唤醒
                     faceDetectManager.stop();  //停止识别
                     isFaceStart = false;
-                    handler.postDelayed(runnable, 30000);  // 30秒后开启
+                    handler.postDelayed(runnable, 120000);  // 120秒后开启
                     showTips("停止识别");
                 }
                 //和30秒之前是同一个人  不做处理

@@ -31,7 +31,7 @@ import com.iflytek.aiui.demo.chat.ui.detail.DetailFragment;
 import com.iflytek.aiui.demo.chat.ui.settings.SettingsFragment;
 import com.iflytek.aiui.demo.chat.ui.test.HttpTestFragement;
 import com.iflytek.aiui.demo.chat.ui.zxing.DefaultCaptureActivity;
-import com.iflytek.aiui.demo.chat.ui.zxing.TestScanActivity;
+import com.iflytek.aiui.demo.chat.ui.zxing.USBCameraActivity;
 import com.umeng.analytics.MobclickAgent;
 
 import java.io.File;
@@ -237,7 +237,7 @@ public class ChatActivity extends AppCompatActivity implements HasSupportFragmen
                     case R.id.nav_scan: {
 //                        switchToAbout();
 //                        startActivity(new Intent(ChatActivity.this, TtsDemo.class));
-                        startActivity(new Intent(ChatActivity.this, TestScanActivity.class));
+                        startActivity(new Intent(ChatActivity.this, USBCameraActivity.class));
                         drawer.closeDrawers();
                         break;
                     }

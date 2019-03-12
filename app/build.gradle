@@ -15,6 +15,7 @@ android {
         ndk {
             abiFilters 'armeabi'
         }
+        multiDexEnabled true
     }
 
     dataBinding {
@@ -117,15 +118,18 @@ dependencies {
     implementation 'com.jaredrummler:material-spinner:1.2.5'
     implementation files('libs/Msc.jar')
     compile project(path: ':library')
-    compile project(path: ':orbbec')
+//    compile project(path: ':orbbec')
     compile project(path: ':iminect')
 //    compile project(path: ':zxinglib')
-    compile project(path: ':zxing')
+//    compile project(path: ':zxing')
     api 'com.android.support:multidex:1.0.2'
     compile  'com.umeng.umsdk:analytics:7.5.4'
     compile  'com.umeng.umsdk:common:1.5.4'
     api 'com.blankj:utilcode:1.20.1'
     implementation 'org.greenrobot:eventbus:3.1.1'
+    compile project(':libusbcamera')
+    compile project(':lib_zxing')
+
 }
 
 

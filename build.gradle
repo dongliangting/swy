@@ -7,6 +7,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -24,8 +25,8 @@ allprojects {
         maven { url "https://maven.google.com" }
         maven { url 'https://dl.bintray.com/umsdk/release' }
 
-
         google()
+        maven { url 'http://raw.github.com/saki4510t/libcommon/master/repository/' }
     }
 }
 
@@ -79,4 +80,6 @@ ext {
     lowTargetSdkVer = 22
     support_library_version = '27.1.1'
     v4Version = "27.1.1"
+    commonLibVersion= '1.5.20'
+
 }
