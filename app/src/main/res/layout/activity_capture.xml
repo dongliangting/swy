@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+       />
+
+    <com.google.zxing.client.android.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        >
+
+        <TextView
+            android:id="@+id/tv_open_torch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/scan_torch_close"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/tv_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/scan_input_hand"
+            android:gravity="center"
+            android:text="手动输入"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:drawableLeft="@drawable/back_img"
+        android:drawablePadding="5dp"
+        android:rotation="90"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="13dp"
+        android:text="返回"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+
+
+</RelativeLayout>

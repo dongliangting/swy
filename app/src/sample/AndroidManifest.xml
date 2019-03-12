@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iflytek.aiui.demo.chat">
+
+    <application
+        android:name=".ChatApp" >
+        <activity
+            android:name=".ChatActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--百度-->
+        <activity android:name="com.baidu.aip.ofr.MainActivity">
+
+
+        </activity>
+        <activity
+            android:name="com.baidu.aip.ofr.RgbVideoIdentityActivity"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name="com.baidu.aip.ofr.RgbVideoMatchImageActivity"
+            android:hardwareAccelerated="true" />
+        <activity android:name="com.baidu.aip.ofr.ImageMacthImageActivity" />
+        <activity android:name="com.baidu.aip.ofr.UserGroupManagerActivity" />
+        <activity android:name="com.baidu.aip.ofr.RegActivity" />
+        <activity android:name="com.baidu.aip.ofr.RgbDetectActivity" />
+        <activity android:name="com.baidu.aip.ofr.AddGroupActivity" />
+        <activity android:name="com.baidu.aip.ofr.GroupListActivity" />
+        <activity android:name="com.baidu.aip.ofr.UserListActivity" />
+        <activity android:name="com.baidu.aip.ofr.UserActivity" />
+        <activity android:name="com.baidu.aip.ofr.BatchImportActivity" />
+        <activity android:name="com.baidu.aip.ofr.LivenessSettingActivity" />
+        <activity android:name="com.baidu.aip.ofr.OrbbecLivenessDetectActivity" />
+        <activity android:name="com.baidu.aip.ofr.OrbbecVideoMatchImageActivity" />
+        <activity android:name="com.baidu.aip.ofr.OrbbecVideoIdentifyActivity" />
+        <activity android:name="com.baidu.aip.ofr.RgbIrLivenessActivity" />
+        <activity android:name="com.baidu.aip.ofr.RgbIrVideoMathImageActivity" />
+        <activity android:name="com.baidu.aip.ofr.RgbIrVideoIdentifyActivity" />
+        <activity android:name="com.baidu.aip.ofr.RgbVideoAttributeTrackActivity" />
+        <activity android:name="com.baidu.aip.ofr.RgbIrVideoAttributeActivity" />
+        <activity android:name="com.baidu.aip.ofr.OrbbecVideoAttributeActivity" />
+        <activity android:name="com.baidu.aip.ofr.IminectVideoIdentifyActivity" />
+        <activity android:name="com.baidu.aip.ofr.IminectLivenessDetectActivity" />
+        <activity android:name="com.baidu.aip.ofr.IminectVideoMatchImageActivity" />
+        <activity android:name="com.baidu.aip.ofr.IminectVideoAtrributeActivity" />
+        <activity android:name="com.baidu.aip.ofr.MultiThreadActivity"></activity>
+        <activity android:name="com.baidu.aip.ofr.FeatureSettingActivity"></activity>
+        <activity android:name="com.baidu.aip.ofr.OrbbecProVideoIdentifyActivity" />
+        <activity android:name="com.baidu.aip.ofr.OrbbecProVideoAttributeActivity" />
+        <activity android:name="com.baidu.aip.ofr.OrbbecProVideoMatchImageActivity" />
+        <activity android:name="com.baidu.aip.ofr.OrbbecProLivenessDetectActivity" />
+        <activity android:name="com.baidu.aip.ofr.QuestiongActivity"></activity>
+
+
+        <receiver
+            android:name=".BootBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
