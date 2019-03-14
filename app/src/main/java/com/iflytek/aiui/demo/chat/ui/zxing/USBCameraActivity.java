@@ -27,11 +27,11 @@ import android.widget.Toast;
 import com.iflytek.aiui.demo.chat.R;
 import com.jiangdg.usbcamera.UVCCameraHelper;
 import com.jiangdg.usbcamera.utils.FileUtils;
-import com.serenegiant.usb.CameraDialog;
-import com.serenegiant.usb.Size;
-import com.serenegiant.usb.USBMonitor;
-import com.serenegiant.usb.common.AbstractUVCCameraHandler;
-import com.serenegiant.usb.widget.CameraViewInterface;
+import com.serenegiant.usb2.CameraDialog2;
+import com.serenegiant.usb2.Size;
+import com.serenegiant.usb2.USBMonitor;
+import com.serenegiant.usb2.common.AbstractUVCCameraHandler;
+import com.serenegiant.usb2.widget.CameraViewInterface;
 import com.uuzuche.lib_zxing.CodeUtils;
 
 import java.io.ByteArrayOutputStream;
@@ -48,7 +48,7 @@ import java.util.List;
  * <p>
  * Created by jiangdongguo on 2017/9/30.
  */
-public class USBCameraActivity extends AppCompatActivity implements CameraDialog.CameraDialogParent, CameraViewInterface.Callback {
+public class USBCameraActivity extends AppCompatActivity implements CameraDialog2.CameraDialogParent, CameraViewInterface.Callback {
     private static final String TAG = "Debug";
     public View mTextureView;
 

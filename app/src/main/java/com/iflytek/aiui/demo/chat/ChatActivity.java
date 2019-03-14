@@ -14,14 +14,17 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.aip.db.DBManager;
 import com.baidu.aip.manager.FaceSDKManager;
+import com.baidu.aip.ofr.MainActivity;
 import com.baidu.aip.ofr.UserGroupManagerActivity;
 import com.baidu.aip.utils.PreferencesUtil;
 import com.iflytek.aiui.demo.chat.common.Constant;
@@ -38,6 +41,7 @@ import java.io.File;
 
 import javax.inject.Inject;
 
+import android_serialport_api.SerialPort;
 import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
@@ -45,6 +49,7 @@ import dagger.android.support.HasSupportFragmentInjector;
 import gdut.bsx.share2.FileUtil;
 import gdut.bsx.share2.Share2;
 import gdut.bsx.share2.ShareContentType;
+import utils.SerialPortUtils;
 
 public class ChatActivity extends AppCompatActivity implements HasSupportFragmentInjector {
     @Inject
@@ -66,6 +71,8 @@ public class ChatActivity extends AppCompatActivity implements HasSupportFragmen
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
+    private SerialPort serialPort;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(ChatActivity.this);
@@ -75,6 +82,49 @@ public class ChatActivity extends AppCompatActivity implements HasSupportFragmen
         onCreateFinish();
 
         faceInit();    //人脸识别初始化
+
+//        serialPort();
+    }
+
+    private SerialPortUtils serialPortUtils = new SerialPortUtils();
+
+    private void serialPort() {
+        serialPort = serialPortUtils.openSerialPort();
+        if (serialPort == null) {
+            Toast.makeText(ChatActivity.this, "串口打开失败", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(ChatActivity.this, "串口已打开", Toast.LENGTH_SHORT).show();
+        byte[] sendBuffer = new byte[8];
+        sendBuffer[0] = (byte) 0xAB;
+        sendBuffer[1] = (byte) 0x03;
+        sendBuffer[2] = (byte) 0x00;
+        sendBuffer[3] = (byte) 0x00;
+        sendBuffer[4] = (byte) 0x00;
+        sendBuffer[5] = (byte) 0x06;
+        sendBuffer[6] = (byte) 0xDD;
+        sendBuffer[7] = (byte) 0xC2;
+        //  0xAB 0x03 0x00 0x00 0x00 0x06 0xDD 0xC2
+
+        serialPortUtils.setOnDataReceiveListener(new SerialPortUtils.OnDataReceiveListener() {
+            @Override
+            public void onDataReceive(byte[] buffer, int size) {
+                handler.post(runnable);
+            }
+
+            //开线程更新UI
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(ChatActivity.this, "串口通信成功", Toast.LENGTH_SHORT).show();
+                }
+            };
+        });
+
+        //链接串口
+        serialPortUtils.sendSerialPort(sendBuffer);
+
+
     }
 
     @Override

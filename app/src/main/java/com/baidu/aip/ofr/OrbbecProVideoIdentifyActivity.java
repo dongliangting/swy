@@ -43,10 +43,10 @@ import com.baidu.aip.utils.FileUitls;
 import com.baidu.idl.facesdk.FaceInfo;
 import com.iflytek.aiui.demo.chat.R;
 import com.orbbec.view.OpenGLView;
-import com.serenegiant.usb.IFrameCallback;
-import com.serenegiant.usb.Size;
-import com.serenegiant.usb.USBMonitor;
-import com.serenegiant.usb.UVCCamera;
+import com.serenegiant.usb2.IFrameCallback;
+import com.serenegiant.usb2.Size;
+import com.serenegiant.usb2.USBMonitor;
+import com.serenegiant.usb2.UVCCamera;
 
 import org.openni.Device;
 import org.openni.DeviceInfo;
@@ -64,8 +64,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeoutException;
-
-import static com.baidu.aip.manager.FaceLiveness.MASK_RGB;
 
 public class OrbbecProVideoIdentifyActivity extends Activity implements OpenNIHelper.DeviceOpenListener,
         ActivityCompat.OnRequestPermissionsResultCallback {

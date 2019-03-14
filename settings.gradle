@@ -1,1 +1,1 @@
-include ':app', ':library', ':orbbec', ':iminect', ':libusbcamera',":lib_zxing"
+include ':app', ':library', ':orbbec', ':iminect', ':libusbcamera',":lib_zxing" ,":lib_serial_port"

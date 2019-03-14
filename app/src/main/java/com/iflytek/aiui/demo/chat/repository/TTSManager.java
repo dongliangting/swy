@@ -84,7 +84,7 @@ public class TTSManager {
             String tag = "@" + System.currentTimeMillis();
 
             StringBuffer params = new StringBuffer();  //构建合成参数
-            params.append("vcn=x_chongchong");  //合成发音人
+            params.append("vcn=x_nannan");  //合成发音人   x_chongchong
             params.append(",speed=50");  //合成速度
             params.append(",pitch=50");  //合成音调
             params.append(",volume=50");  //合成音量
